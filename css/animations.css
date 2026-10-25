@@ -1,0 +1,159 @@
+
+/* ========================================
+   1. HERO ENTRANCE ANIMATIONS
+======================================== */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.hero .eyebrow {
+  animation: fade-up 700ms ease both;
+}
+
+.hero h1 {
+  animation: fade-up 800ms 100ms ease both;
+}
+
+.hero h2 {
+  animation: fade-up 800ms 200ms ease both;
+}
+
+.hero-description {
+  animation: fade-up 800ms 300ms ease both;
+}
+
+.hero-actions {
+  animation: fade-up 800ms 400ms ease both;
+}
+
+.scroll-link {
+  animation: fade-in 1s 800ms ease both;
+}
+
+.hero-glow-one {
+  animation: float 7s ease-in-out infinite;
+}
+
+.hero-glow-two {
+  animation: float 9s ease-in-out infinite reverse;
+}
+
+/* ========================================
+   2. SCROLL REVEAL
+======================================== */
+
+/*
+  JavaScript will add .reveal to elements.
+  Elements remain visible until JavaScript
+  successfully enables the reveal system.
+*/
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms ease;
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   3. INTERACTION FEEDBACK
+======================================== */
+
+.skill-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.filter-btn:active,
+.btn:active {
+  transform: scale(0.97);
+}
+
+.project-link {
+  transition: color 200ms ease;
+}
+
+.project-link:hover {
+  color: var(--accent-purple);
+}
+
+/* ========================================
+   4. MOBILE MENU TRANSITIONS
+======================================== */
+
+.menu-toggle span {
+  transition:
+    transform 250ms ease,
+    opacity 250ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================
+   5. ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
